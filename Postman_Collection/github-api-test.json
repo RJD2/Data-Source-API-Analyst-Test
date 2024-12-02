@@ -1,0 +1,214 @@
+{
+	"info": {
+		"_postman_id": "b4cf2eb9-fd51-4821-a3f3-7212674a4a3b",
+		"name": "Github API Test",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json",
+		"_exporter_id": "37827184"
+	},
+	"item": [
+		{
+			"name": "Requests",
+			"item": [
+				{
+					"name": "User repos",
+					"request": {
+						"method": "GET",
+						"header": []
+					},
+					"response": []
+				},
+				{
+					"name": "Python repos",
+					"request": {
+						"method": "GET",
+						"header": []
+					},
+					"response": []
+				},
+				{
+					"name": "Rate limits",
+					"request": {
+						"method": "GET",
+						"header": []
+					},
+					"response": []
+				},
+				{
+					"name": "Oldest python repo",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://api.github.com/search/repositories?q=language:python&sort=created&order=asc&per_page=1",
+							"protocol": "https",
+							"host": [
+								"api",
+								"github",
+								"com"
+							],
+							"path": [
+								"search",
+								"repositories"
+							],
+							"query": [
+								{
+									"key": "q",
+									"value": "language:python"
+								},
+								{
+									"key": "sort",
+									"value": "created"
+								},
+								{
+									"key": "order",
+									"value": "asc"
+								},
+								{
+									"key": "per_page",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Popular python repo",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://api.github.com/search/repositories?q=language:python&sort=stars&order=desc&per_page=1",
+							"protocol": "https",
+							"host": [
+								"api",
+								"github",
+								"com"
+							],
+							"path": [
+								"search",
+								"repositories"
+							],
+							"query": [
+								{
+									"key": "q",
+									"value": "language:python"
+								},
+								{
+									"key": "sort",
+									"value": "stars"
+								},
+								{
+									"key": "order",
+									"value": "desc"
+								},
+								{
+									"key": "per_page",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GraphQL oldest repo",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"query\": \"query { search(query: \\\"language:python\\\", type: REPOSITORY, first: 1, after: null) { edges { node { ... on Repository { name createdAt url } } } } }\"\n}\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "https://api.github.com/graphql"
+					},
+					"response": []
+				},
+				{
+					"name": "GraphQL popular repo",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"query\": \"query { search(query: \\\"language:python\\\", type: REPOSITORY, first: 1, after: null) { edges { node { ... on Repository { name createdAt url } } } } }\"\n}\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "https://api.github.com/graphql"
+					},
+					"response": []
+				},
+				{
+					"name": "Latest commits",
+					"request": {
+						"method": "GET",
+						"header": []
+					},
+					"response": []
+				},
+				{
+					"name": "Commit content",
+					"request": {
+						"method": "GET",
+						"header": []
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"auth": {
+		"type": "bearer",
+		"bearer": {
+			"token": "..."
+		}
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "Content-Type",
+			"value": "",
+			"type": "string"
+		},
+		{
+			"key": "Accept",
+			"value": "",
+			"type": "string"
+		},
+		{
+			"key": "X-GitHub-Api-Version",
+			"value": "",
+			"type": "string"
+		}
+	]
+}

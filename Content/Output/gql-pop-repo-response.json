@@ -1,0 +1,18 @@
+{
+    "data": {
+        "search": {
+            "edges": [
+                {
+                    "node": {
+                        "name": "public-apis",
+                        "owner": {
+                            "login": "public-apis"
+                        },
+                        "stargazerCount": 319087,
+                        "url": "https://github.com/public-apis/public-apis"
+                    }
+                }
+            ]
+        }
+    }
+}

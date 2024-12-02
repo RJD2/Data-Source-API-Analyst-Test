@@ -1,0 +1,15 @@
+{
+    "data": {
+        "search": {
+            "edges": [
+                {
+                    "node": {
+                        "name": "public-apis",
+                        "createdAt": "2016-03-20T23:49:42Z",
+                        "url": "https://github.com/public-apis/public-apis"
+                    }
+                }
+            ]
+        }
+    }
+}
